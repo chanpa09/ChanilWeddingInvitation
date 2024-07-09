@@ -458,7 +458,7 @@
 
 
           <section id="poa" class="tm-POA tm-Section js-parallax-wrapper">
-            <div class="tm-Heading ttl_top" >
+            <div class="tm-Heading ttl_top">
               <div class="poa_ttl">
                 <img src="wedding-invi.jp/upload_data/action_design/img/action23/ttl_06.png">
               </div>
@@ -503,133 +503,163 @@
 
             <div class="tm-Container">
 
+              <!-- 계좌 -->
+              <!-- <div class="tm-HostUnit_Name2" data-aos="fade-up" data-aos-delay="300"> -->
+              <div class="tm-HostUnit_Name2">
+
+                <div class="form-Main_Group " >
+                  <b><span style="color: palevioletred ;font-size: large;">마음 전하실 곳</span></b>
+                  <br>
+                  <br>
+                  <p>
+                    참석이 어려우신 분들을 위해
+                    <br>계좌번호를 기재하였습니다.
+                    <br>너그러이 양해하여 주시기 바랍니다.
+                  </p>
+                  <style>
+                    .container {
+                      width: auto;
+                      margin: 20px auto;
+                    }
+
+                    .item {
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-between;
+                      padding: 10px;
+                      border: 1px solid #ddd;
+                      margin-bottom: 10px;
+                    }
+
+                    .text-container {
+                      flex-grow: 1;
+                    }
+
+                    .copy-btn {
+                      background-color: #f0f0f0;
+                      border: none;
+                      padding: 5px 10px;
+                      cursor: pointer;
+                      margin-left: 10px;
+                    }
+                  </style>
+                  <div class="container">
+
+                    <div class="item">
+                      <div class="text-container" style="text-align: left;">
+                        <p>신한은행 110-475-45727</p>
+                        <p>신랑 박찬일</p>
+                      </div>
+                      <span id="copybtn1" class="copy-btn">복사하기</span>
+                    </div>
+
+                    <div class="item">
+                      <div class="text-container" style="text-align: left;">
+                        <p>농협은행 003-12-034834</p>
+                        <p>신랑 아버지 박성동</p>
+                      </div>
+                      <span id="copybtn2" class="copy-btn">복사하기</span>
+                    </div>
+
+                    <div class="item">
+                      <div class="text-container" style="text-align: left;">
+                        <p>농협은행 199-02-146408</p>
+                        <p>신랑 어머니 강미경</p>
+                      </div>
+                      <span id="copybtn3" class="copy-btn">복사하기</span>
+                    </div>
+
+                  </div>
+
+                  <input type="hidden" name="copy_board_1" id="copy_board_1" value="110-475-45727">
+                  <input type="hidden" name="copy_board_2" id="copy_board_2" value="003-12-034834">
+                  <input type="hidden" name="copy_board_3" id="copy_board_3" value="199-02-146408">
+                  <input type="hidden" name="copy_board_4" id="copy_board_4" value="">
+                  <input type="hidden" name="copy_board_5" id="copy_board_5" value="">
+                  <input type="hidden" name="copy_board_6" id="copy_board_6" value="">
+
+                  <script>
+                    function copyToClipboard(val) {
+                      var t = document.createElement("textarea");
+                      document.body.appendChild(t);
+                      t.value = val;
+                      t.select();
+                      document.execCommand('copy');
+                      document.body.removeChild(t);
+                    }
+
+                    $('#copybtn1').click(function () {
+
+                      var account = $('#copy_board_1').val();
+                      if (!account) {
+                        alert('계좌번호를 이용하지 않습니다.');
+                      } else {
+                        copyToClipboard(account);
+                        alert('계좌번호를 복사하였습니다');
+                      }
+
+                    });
+
+                    $('#copybtn2').click(function () {
+                      var account = $('#copy_board_2').val();
+                      if (!account) {
+                        alert('계좌번호를 이용하지 않습니다.');
+                      } else {
+                        copyToClipboard(account);
+                        alert('계좌번호를 복사하였습니다');
+                      }
+                    });
+
+                    $('#copybtn3').click(function () {
+                      var account = $('#copy_board_3').val();
+                      if (!account) {
+                        alert('계좌번호를 이용하지 않습니다.');
+                      } else {
+                        copyToClipboard(account);
+                        alert('계좌번호를 복사하였습니다');
+                      }
+                    });
+
+                    $('#copybtn4').click(function () {
+                      var account = $('#copy_board_4').val();
+                      if (!account) {
+                        alert('계좌번호를 이용하지 않습니다.');
+                      } else {
+                        copyToClipboard(account);
+                        alert('계좌번호를 복사하였습니다');
+                      }
+                    });
+
+                    $('#copybtn5').click(function () {
+                      var account = $('#copy_board_5').val();
+                      if (!account) {
+                        alert('계좌번호를 이용하지 않습니다.');
+                      } else {
+                        copyToClipboard(account);
+                        alert('계좌번호를 복사하였습니다');
+                      }
+                    });
+
+                    $('#copybtn6').click(function () {
+                      var account = $('#copy_board_6').val();
+                      if (!account) {
+                        alert('계좌번호를 이용하지 않습니다.');
+                      } else {
+                        copyToClipboard(account);
+                        alert('계좌번호를 복사하였습니다');
+                      }
+                    });
+
+                  </script>
+
+                </div>
+                <div class="form-Main_Group form-Main_Group-required">
+                </div>
+              </div>
+              <!--// 축의금 계좌번호-->
               <!-- 축의금 계좌번호-->
 
 
-              <!-- 계좌 -->
-              <!-- <div class="tm-HostUnit_Name2" data-aos="fade-up" data-aos-delay="300"> -->
-                <div class="tm-HostUnit_Name2" >
-                <p>
-                  참석이 어려우신 분들을 위해 계좌번호를 기재하였습니다.
-                  <br>너그러이 양해하여 주시기 바랍니다.
-                </p>
-                <form accept-charset="UTF-8" class="c_invitation_guest_form" id="new_guest" method="post"
-                  name="party_info_form">
-                  <div class="form-Main_Groups">
-                    <div class="form-Main_Group ">
-
-                      <div class="form-Main_Key">신랑</div>
-                      <div class="form-Main_Value">
-                        신한 (예금주 : 박찬일)
-                        <input type="tel" class="input input-middle" style="background-color: antiquewhite;"
-                          name="guest[tel]" value="110-475-45727" readonly>
-                        <span id="copybtn1" class="account_copy">복사</span>
-                      </div>
-
-                      <div class="form-Main_Key">신랑 아버지</div>
-                      <div class="form-Main_Value">
-                        농협 (예금주 : 박성동)
-                        <input type="tel" class="input input-middle" style="background-color: antiquewhite;"
-                          name="guest[tel]" value="003-12-034834" readonly>
-                        <span id="copybtn2" class="account_copy">복사</span>
-                      </div>
-
-                      <div class="form-Main_Key">신랑 어머니</div>
-                      <div class="form-Main_Value">
-                        농협 (예금주 : 강미경)
-                        <input type="tel" class="input input-middle" style="background-color: antiquewhite;"
-                          name="guest[tel]" value="199-02-146408" readonly>
-                        <span id="copybtn3" class="account_copy">복사</span>
-                      </div>
-
-                      <input type="hidden" name="copy_board_1" id="copy_board_1" value="110-475-45727">
-                      <input type="hidden" name="copy_board_2" id="copy_board_2" value="003-12-034834">
-                      <input type="hidden" name="copy_board_3" id="copy_board_3" value="199-02-146408">
-                      <input type="hidden" name="copy_board_4" id="copy_board_4" value="">
-                      <input type="hidden" name="copy_board_5" id="copy_board_5" value="">
-                      <input type="hidden" name="copy_board_6" id="copy_board_6" value="">
-
-                      <script>
-                        function copyToClipboard(val) {
-                          var t = document.createElement("textarea");
-                          document.body.appendChild(t);
-                          t.value = val;
-                          t.select();
-                          document.execCommand('copy');
-                          document.body.removeChild(t);
-                        }
-
-                        $('#copybtn1').click(function () {
-
-                          var account = $('#copy_board_1').val();
-                          if (!account) {
-                            alert('계좌번호를 이용하지 않습니다.');
-                          } else {
-                            copyToClipboard(account);
-                            alert('계좌번호를 복사하였습니다');
-                          }
-
-                        });
-
-                        $('#copybtn2').click(function () {
-                          var account = $('#copy_board_2').val();
-                          if (!account) {
-                            alert('계좌번호를 이용하지 않습니다.');
-                          } else {
-                            copyToClipboard(account);
-                            alert('계좌번호를 복사하였습니다');
-                          }
-                        });
-
-                        $('#copybtn3').click(function () {
-                          var account = $('#copy_board_3').val();
-                          if (!account) {
-                            alert('계좌번호를 이용하지 않습니다.');
-                          } else {
-                            copyToClipboard(account);
-                            alert('계좌번호를 복사하였습니다');
-                          }
-                        });
-
-                        $('#copybtn4').click(function () {
-                          var account = $('#copy_board_4').val();
-                          if (!account) {
-                            alert('계좌번호를 이용하지 않습니다.');
-                          } else {
-                            copyToClipboard(account);
-                            alert('계좌번호를 복사하였습니다');
-                          }
-                        });
-
-                        $('#copybtn5').click(function () {
-                          var account = $('#copy_board_5').val();
-                          if (!account) {
-                            alert('계좌번호를 이용하지 않습니다.');
-                          } else {
-                            copyToClipboard(account);
-                            alert('계좌번호를 복사하였습니다');
-                          }
-                        });
-
-                        $('#copybtn6').click(function () {
-                          var account = $('#copy_board_6').val();
-                          if (!account) {
-                            alert('계좌번호를 이용하지 않습니다.');
-                          } else {
-                            copyToClipboard(account);
-                            alert('계좌번호를 복사하였습니다');
-                          }
-                        });
-
-                      </script>
-
-                    </div>
-                    <div class="form-Main_Group form-Main_Group-required">
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <!--// 축의금 계좌번호-->
 
               <div class="tm-POA_Foot">
                 <!-- ▼START SVG部分 ./template/action3/foot.html --->
