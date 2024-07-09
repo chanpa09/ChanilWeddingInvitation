@@ -5687,4 +5687,13 @@ input.mt5{
   .form-Main_Group .pic-simple .remove_img {
     font-size: 10px;
   }
+
+  #header .bgm-wrap{
+    background-image:url(images/bg.png);
+    background-size:100%;
+    position:relative;
+    height: 45px;
+    }
+#header .bgm{position: absolute;top: 10px;left: 10px;z-index: 9999;width: 14px;background-color: rgba(214, 191, 176, 0.48); height: 14px;padding: 8px;border-radius: 20px;}
+#header .bgm img {width: 100%;}
 }
