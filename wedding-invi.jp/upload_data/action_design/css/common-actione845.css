@@ -5150,6 +5150,14 @@ input.mt5{
   letter-spacing: 0.2em;
 }
 
+.tm-HostUnit_Name2{
+  display: block;
+  margin-top: 2.13vw;
+  font-size: 25px;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+
 @media (min-width:320px){
 
 .tm-HostUnit_Name{
