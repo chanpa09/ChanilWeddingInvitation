@@ -4195,6 +4195,11 @@ template {
   margin-bottom: 7.33vw;
 }
 
+
+.account_copy {width: 17%;height: 39px;display: inline-block;background-color: #989797;color: #fff;text-align: center; ;cursor: pointer;}
+
+
+
 @media (min-width: 900px),print {
 
 .form-Main_Groups{
