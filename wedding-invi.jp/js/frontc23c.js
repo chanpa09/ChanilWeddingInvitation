@@ -87,9 +87,9 @@ function google_map_link() {
   try {
     var url = 'https://www.google.co.jp/maps?q=';
     var el = document.getElementById('party_info_form_prefecture_id');
-    url += el.options[el.selectedIndex].innerHTML;
+    url += el.options[el.selectedIndex].text;
     el = document.getElementById('party_info_form_municipality_id');
-    url += el.options[el.selectedIndex].innerHTML;
+    url += el.options[el.selectedIndex].text;
     url += document.getElementById('party_info_form_address').value;
     window.open(url);
     return true;
@@ -170,8 +170,20 @@ function no_submit(event) {
   }
 }
 
+function set_dialog_message($element, message) {
+  var text = message == null ? '' : String(message);
+  var lines = text.split('\n');
+  $element.empty();
+  for (var i = 0; i < lines.length; i++) {
+    if (i > 0) {
+      $element.append("<br>");
+    }
+    $element.append(document.createTextNode(lines[i]));
+  }
+}
+
 function ui_alert(message, width) {
-  $("#dialog-message-alert").html(message);
+  set_dialog_message($("#dialog-message-alert"), message);
   if (width) {
     $("#dialog-message").dialog({
       modal: true,
@@ -199,25 +211,29 @@ function ui_alert(message, width) {
 }
 
 function ui_confirm_delete_manager(name, guest_id, user_party_info_id) {
-  add_field = "<input type='hidden' name='guest_id' value='" + guest_id + "'>";
-  if (user_party_info_id != null)
-    add_field += "<input type='hidden' name='user_party_info_id' value='" + user_party_info_id + "'>";
-  $("#hidden_field").html(add_field);
+  var $hiddenField = $("#hidden_field");
+  $hiddenField.empty();
+  $hiddenField.append($("<input>", { type: "hidden", name: "guest_id", value: guest_id }));
+  if (user_party_info_id != null) {
+    $hiddenField.append($("<input>", { type: "hidden", name: "user_party_info_id", value: user_party_info_id }));
+  }
   return ui_confirm(name + "様の登録を解除します。", 'guest_form');
 }
 
 function ui_confirm_delete_guest(name, guest_id, party_info_id) {
-	add_field = "<input type='hidden' name='guest_id' value='" + guest_id + "'>";
-	if (party_info_id != null)
-		add_field += "<input type='hidden' name='party_info_id' value='" + party_info_id + "'>";
-	$("#hidden_field").html(add_field);
+	var $hiddenField = $("#hidden_field");
+	$hiddenField.empty();
+	$hiddenField.append($("<input>", { type: "hidden", name: "guest_id", value: guest_id }));
+	if (party_info_id != null) {
+		$hiddenField.append($("<input>", { type: "hidden", name: "party_info_id", value: party_info_id }));
+	}
 	return ui_confirm(name + "を削除します。", 'delete_guest_form');
 }
 
 function change_user_type(url, party_info_id, user_party_info_id, this_element, user_type_man, user_type_woman, use_type_manager) {
   var user_type = this_element.value;
   if (false && (user_type == user_type_man || user_type == user_type_woman)) { // TODO false 撤去
-    $("#dialog-message-confirm").html("選択したメンバー情報をパーティの" + (user_type == user_type_man ? "新郎" : "新婦") + "情報に反映しますか？");
+    set_dialog_message($("#dialog-message-confirm"), "選択したメンバー情報をパーティの" + (user_type == user_type_man ? "新郎" : "新婦") + "情報に反映しますか？");
     $("#dialog-confirm").dialog({
       resizable: false,
       //width: 230,
@@ -280,7 +296,7 @@ function ui_dialog(message, width) {
   if (!width) {
     width = '300px';
   }
-  $("#dialog-message-confirm").html(message);
+  set_dialog_message($("#dialog-message-confirm"), message);
   $("#dialog-confirm").dialog({
     resizable: false,
     width: width,
@@ -296,7 +312,7 @@ function ui_dialog(message, width) {
 }
 
 function ui_confirm(message, action_type, location_href) {
-  $("#dialog-message-confirm").html(message);
+  set_dialog_message($("#dialog-message-confirm"), message);
   $("#dialog-confirm").dialog({
     resizable: false,
     width: '70%',
@@ -312,7 +328,7 @@ function ui_confirm(message, action_type, location_href) {
         } else if (action_type == 'delete_user') {
           link_submit_add_param('delete', '1');
         } else if (pattern.test(action_type)) {
-          $("#hidden_field").html("<input type='hidden' name='" + action_type + "' value='1'>");
+          $("#hidden_field").empty().append($("<input>", { type: "hidden", name: action_type, value: "1" }));
           link_submit('party_info_form');
         } else if (location_href) {
           location.href = location_href;

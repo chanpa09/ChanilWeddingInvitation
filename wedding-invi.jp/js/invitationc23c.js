@@ -1,5 +1,16 @@
 let g_ajax_checking_flag = false;
 
+function parse_invitation_draft(jsonData) {
+    if (!jsonData) {
+        return null;
+    }
+    try {
+        return JSON.parse(jsonData);
+    } catch (e) {
+        return null;
+    }
+}
+
 $(document).ready(function () {
     const INVITATION_GUEST_FORM = 'invitation_guest_form';
 
@@ -11,9 +22,19 @@ $(document).ready(function () {
         !$("[name='guest[given_name_kana]']").val() &&
         !$("[name='guest[email]']").val()
     ) {
-        let jsonData = $.cookie(INVITATION_GUEST_FORM);
+        let jsonData = sessionStorage.getItem(INVITATION_GUEST_FORM);
+        if (!jsonData) {
+            jsonData = $.cookie(INVITATION_GUEST_FORM);
+            if (jsonData) {
+                sessionStorage.setItem(INVITATION_GUEST_FORM, jsonData);
+                $.removeCookie(INVITATION_GUEST_FORM, {path: '/invitation'});
+            }
+        }
         if (jsonData) {
-            let data = JSON.parse(jsonData);
+            let data = parse_invitation_draft(jsonData);
+            if (!data) {
+                return;
+            }
             $("[name='guest[guest_type]'][value=" + data.guest_type + "]").prop('checked', true);
             $("[name='guest[family_name]']").val(data.family_name);
             $("[name='guest[given_name]']").val(data.given_name);
@@ -89,7 +110,7 @@ $(document).ready(function () {
             });
         }
 
-        $.cookie(INVITATION_GUEST_FORM, JSON.stringify(jsonData), {path: '/invitation', expires: 120});
+        sessionStorage.setItem(INVITATION_GUEST_FORM, JSON.stringify(jsonData));
     });
 
     // ゲスト画像アップロード
@@ -245,5 +266,3 @@ function remove_image_file(target_id) {
     $(preview_selector).hide();
     $(remove_selector).val(1);
 }
-
-
